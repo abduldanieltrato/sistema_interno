@@ -1,0 +1,39 @@
+{% extends "app_lab/base.html" %}
+
+{% block title %}Gerenciar Análises{% endblock %}
+
+{% block content %}
+<h1>Gerenciar Análises de {{ paciente.nome }}</h1>
+
+<form method = 'post'>
+    {% csrf_token %}
+    {{ formset.management_form }}
+    <table>
+        <thead>
+            <tr>
+                <th>Exame</th>
+                <th>Descrição</th>
+                <th>Status</th>
+                <th>Excluir</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for form in formset %}
+            <tr>
+                <td>{{ form.tipo }}</td>
+                <td>{{ form.descricao }}</td>
+                <td>{{ form.status }}</td>
+                <td>
+                    {% if form.instance.pk %}
+                    <input type = 'checkbox' name = '{{ form.DELETE.name }}'>
+                    {% endif %}
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    <button type = 'submit'>Salvar</button>
+</form>
+
+<a href = "{% url 'paciente_detail' paciente.id %}">Voltar para Detalhes do Paciente</a>
+{% endblock %}

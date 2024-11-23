@@ -1,0 +1,13 @@
+{% extends 'app_lab/base.html' %}
+
+{% block title %}Detalhes do Resultado{% endblock %}
+
+{% block content %}
+<h1>Detalhes do Resultado</h1>
+<p><strong>Análise:</strong> {{ object.analise.tipo }}</p>
+<p><strong>Dados:</strong> {{ object.dados }}</p>
+<p><strong>Validado:</strong> {{ "Sim" if object.validado else "Não" }}</p>
+<p><strong>Validador:</strong> {{ object.validador.username if object.validador else "N/A" }}</p>
+<a href="{% url 'resultado_update' object.id %}" class="button">Editar</a>
+<a href="{% url 'resultado_list' %}" class="button">Voltar à Lista</a>
+{% endblock %}

@@ -1,0 +1,15 @@
+{% extends 'app_lab/base.html' %}
+
+{% block title %}Detalhes da Análise{% endblock %}
+
+{% block content %}
+<h1>Detalhes da Análise</h1>
+<p><strong>Paciente:</strong> {{ object.paciente.nome }}</p>
+<p><strong>Tipo:</strong> {{ object.tipo }}</p>
+<p><strong>Descrição:</strong> {{ object.descricao }}</p>
+<p><strong>Status:</strong> {{ object.status }}</p>
+<p><strong>Data da Solicitação:</strong> {{ object.data_solicitacao|date:"d/m/Y H:i" }}</p>
+<p><strong>Data de Realização:</strong> {{ object.data_realizacao|date:"d/m/Y H:i" if object.data_realizacao else "Pendente" }}</p>
+<a href="{% url 'analise_update' object.id %}" class="button">Editar</a>
+<a href="{% url 'analise_list' %}" class="button">Voltar à Lista</a>
+{% endblock %}

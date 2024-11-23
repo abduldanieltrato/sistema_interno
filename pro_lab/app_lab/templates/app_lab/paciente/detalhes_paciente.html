@@ -1,0 +1,25 @@
+<h1>Detalhes do Paciente: {{ paciente.nome }}</h1>
+
+<ul>
+    <li>Data de Nascimento: {{ paciente.data_nascimento }}</li>
+    <li>Gênero: {{ paciente.genero }}</li>
+    <li>Telefone: {{ paciente.telefone }}</li>
+    <li>Residência: {{ paciente.residencia }}</li>
+    <li>Nacionalidade: {{ paciente.nacionalidade }}</li>
+</ul>
+
+<h2>Análises</h2>
+<ul>
+    {% for analise in analises %}
+        <li>
+            Exame: {{ analise.tipo }} <br>
+            Descrição: {{ analise.descricao|default:"Nenhuma descrição" }} <br>
+            Status: {{ analise.status }} <br>
+            Data de Realização: {{ analise.data_realizacao }}
+        </li>
+    {% empty %}
+        <li>Nenhuma análise cadastrada.</li>
+    {% endfor %}
+</ul>
+
+<a href = "{% url 'adicionar_analises' paciente.id %}">Adicionar Análises</a>

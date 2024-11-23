@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang = 'pt'>
+<head>
+    <meta charset = 'UTF-8'>
+    <meta name = 'viewport' content = 'width=device-width, initial-scale=1.0'>
+    <title>Erro Interno do Servidor</title>
+    <link rel = 'stylesheet' href = "{% static 'css/style.css' %}">
+</head>
+<body>
+    <header>
+        <h1>Erro 500</h1>
+        <p>Desculpe, houve um erro no servidor. Estamos trabalhando para resolver isso.</p>
+        <a href = "{% url 'login' %}">Voltar à página inicial</a>
+    </header>
+</body>
+</html>

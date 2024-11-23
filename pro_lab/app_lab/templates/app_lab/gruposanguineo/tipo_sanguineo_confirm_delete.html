@@ -1,0 +1,15 @@
+{% extends 'app_lab/base.html' %}
+
+{% block title %}Confirmar Exclusão de Tipo Sanguíneo{% endblock %}
+
+{% block content %}
+<h1>Confirmar Exclusão</h1>
+<p>Você tem certeza que deseja excluir este tipo sanguíneo?</p>
+<p><strong>Tipo:</strong> {{ object.tipo }}</p>
+<p><strong>Descrição:</strong> {{ object.descricao }}</p>
+<form method="post">
+    {% csrf_token %}
+    <button type="submit" class="button">Confirmar Exclusão</button>
+</form>
+<a href="{% url 'tipo_sanguineo_list' %}" class="button">Cancelar</a>
+{% endblock %}

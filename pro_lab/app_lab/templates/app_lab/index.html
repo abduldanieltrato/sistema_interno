@@ -1,0 +1,19 @@
+{% extends 'app_lab/base.html' %}
+
+{% block title %}Sistema de Gest&atilde;o Laboratorial{% endblock %}
+
+{% block content %}
+<p>Este sistema foi desenvolvido para simplificar a gest&atilde;o de pacientes, an&aacute;lises, resultados, materiais, Consumiveis e Futuramente
+   outras entidades</p>
+<section>
+    <h2>&Aacute;eas do Sistema</h2>
+    <ul>
+        <li><a href = "{% url 'usuario_list' %}">Gest&atilde;o de Usu&aacute;rios</a>
+            <a href = "{% url 'paciente_list' %}">Gest&atilde;o de Pacientes</a>
+            <a href = "{% url 'exame_list' %}">Gest&atilde;o de Exames</a>
+            <a href = "{% url 'analise_list' %}">Gest&atilde;o de An&aacute;lises</a>
+            <a href = "{% url 'resultado_list' %}">Gest&atilde;o de Resultados</a>
+        </li>
+    </ul>
+</section>
+{% endblock %}

@@ -1,0 +1,12 @@
+{% extends 'app_lab/base.html' %}
+
+{% block title %}Detalhes do Usuário{% endblock %}
+
+{% block content %}
+<h1>Detalhes do Usuário</h1>
+<p><strong>Nome:</strong> {{ object.username }}</p>
+<p><strong>Email:</strong> {{ object.email }}</p>
+<p><strong>Tipo:</strong> {{ "Médico" if object.is_medico else "Comum" }}</p>
+<a href="{% url 'usuario_update' object.id %}" class="button">Editar</a>
+<a href="{% url 'usuario_list' %}" class="button">Voltar à Lista</a>
+{% endblock %}

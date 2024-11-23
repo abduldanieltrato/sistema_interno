@@ -1,0 +1,15 @@
+{% extends 'app_lab/base.html' %}
+
+{% block title %}Confirmar Exclusão de Auditoria{% endblock %}
+
+{% block content %}
+<h1>Confirmar Exclusão</h1>
+<p>Você tem certeza que deseja excluir esta auditoria?</p>
+<p><strong>Usuário:</strong> {{ object.usuario }}</p>
+<p><strong>Ação:</strong> {{ object.acao }}</p>
+<form method="post">
+    {% csrf_token %}
+    <button type="submit" class="button">Confirmar Exclusão</button>
+</form>
+<a href="{% url 'auditoria_list' %}" class="button">Cancelar</a>
+{% endblock %}

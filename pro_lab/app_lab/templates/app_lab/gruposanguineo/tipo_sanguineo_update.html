@@ -1,0 +1,13 @@
+{% extends 'app_lab/base.html' %}
+
+{% block title %}Editar Tipo Sanguíneo{% endblock %}
+
+{% block content %}
+<h1>Editar Tipo Sanguíneo</h1>
+<form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit" class="button">Salvar Alterações</button>
+    <a href="{% url 'tipo_sanguineo_detail' object.pk %}" class="button">Cancelar</a>
+</form>
+{% endblock %}

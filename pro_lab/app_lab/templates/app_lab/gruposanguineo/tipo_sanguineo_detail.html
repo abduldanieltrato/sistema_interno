@@ -1,0 +1,11 @@
+{% extends 'app_lab/base.html' %}
+
+{% block title %}Detalhes do Tipo Sanguíneo{% endblock %}
+
+{% block content %}
+<h1>Detalhes do Tipo Sanguíneo</h1>
+<p><strong>Tipo:</strong> {{ object.tipo }}</p>
+<p><strong>Descrição:</strong> {{ object.descricao }}</p>
+<a href="{% url 'tipo_sanguineo_update' object.pk %}" class="button">Editar</a>
+<a href="{% url 'tipo_sanguineo_list' %}" class="button">Voltar</a>
+{% endblock %}

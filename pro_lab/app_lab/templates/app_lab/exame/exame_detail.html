@@ -1,0 +1,15 @@
+{% extends 'app_lab/base.html' %}
+
+{% block title %}Detalhes do Exame{% endblock %}
+
+{% block content %}
+<h1>Detalhes do Exame</h1>
+<p><strong>Nome:</strong> {{ object.nome }}</p>
+<p><strong>Descrição:</strong> {{ object.descricao }}</p>
+<p><strong>Valor de Referência:</strong> {{ object.valor_referencia }}</p>
+<p><strong>Unidade SI:</strong> {{ object.unidade_si }}</p>
+<p><strong>Prazo de Resultado:</strong> {{ object.prazo_resultado }} dias</p>
+<p><strong>Status:</strong>{% if object.ativo %} activo {% else %} Não {% endif %}</p>
+<a href="{% url 'exame_update' object.id %}" class="button">Editar</a>
+<a href="{% url 'exame_list' %}" class="button">Voltar à Lista</a>
+{% endblock %}

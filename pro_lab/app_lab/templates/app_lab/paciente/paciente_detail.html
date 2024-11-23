@@ -1,0 +1,19 @@
+{% extends 'app_lab/base.html' %}
+
+{% block title %}Detalhes do Paciente{% endblock %}
+
+{% block content %}
+<h1>Detalhes do Paciente</h1>
+<p><strong>Nome:</strong> {{ object.nome }}</p>
+<p><strong>Data de Nascimento:</strong> {{ object.data_nascimento }}</p>
+<p><strong>Gênero:</strong> {{ object.genero }}</p>
+<p><strong>Telefone:</strong> {{ object.telefone }}</p>
+<p><strong>Residencia:</strong> {{ object.residencia }}</p>
+<p><strong>Nacionalidade:</strong> {{ object.nacionalidade }}</p>
+<p><strong>Numero de Identificacao</strong> {{ object.numero_identificacao }}</p>
+<p><strong>Exames:</strong> {{ object.exames }}</p>
+<p><strong>Data de Entrada:</strong> {{ object.data_entrada }}</p>
+<p><strong>Data de Actualizacao:</strong> {{ object.data_atualizacao }}</p>
+<a href="{% url 'paciente_update' object.id %}" class="button">Editar Paciente</a>
+<a href="{% url 'paciente_list' %}" class="button">Voltar à Lista de Pacientes</a>
+{% endblock %}

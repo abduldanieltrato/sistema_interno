@@ -1,0 +1,26 @@
+<h1>Relatório de Análises Realizadas Este Mês</h1>
+
+<table>
+    <thead>
+        <tr>
+            <th>Paciente</th>
+            <th>Exame</th>
+            <th>Descrição</th>
+            <th>Data de Realização</th>
+            <th>Status</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for analise in analises %}
+            <tr>
+                <td>{{ analise.paciente.nome }}</td>
+                <td>{{ analise.tipo }}</td>
+                <td>{{ analise.descricao|default:"Nenhuma descrição" }}</td>
+                <td>{{ analise.data_realizacao }}</td>
+                <td>{{ analise.status }}</td>
+            </tr>
+        {% empty %}
+            <tr><td colspan = '5'>Nenhuma análise realizada este mês.</td></tr>
+        {% endfor %}
+    </tbody>
+</table>

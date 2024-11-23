@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang = 'pt'>
+<head>
+    <meta charset = 'UTF-8'>
+    <meta name = 'viewport' content = 'width=device-width, initial-scale=1.0'>
+    <title>Acesso Proibido</title>
+    <link rel = 'stylesheet' href = "{% static 'css/style.css' %}">
+</head>
+<body>
+    <header>
+        <h1>Erro 403</h1>
+        <p>Você não tem permissão para acessar esta página.</p>
+        <a href = "{% url 'login' %}">Voltar à página inicial</a>
+    </header>
+</body>
+</html>

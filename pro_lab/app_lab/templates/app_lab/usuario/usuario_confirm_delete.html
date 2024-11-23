@@ -1,0 +1,13 @@
+{% extends 'app_lab/base.html' %}
+
+{% block title %}Confirmar Exclusão{% endblock %}
+
+{% block content %}
+<h1>Confirmar Exclusão</h1>
+<p>Você tem certeza que deseja excluir o usuário "{{ object.username }}"?</p>
+<form method="post">
+    {% csrf_token %}
+    <button type="submit" class="button">Confirmar</button>
+    <a href="{% url 'usuario_list' %}" class="button">Cancelar</a>
+</form>
+{% endblock %}

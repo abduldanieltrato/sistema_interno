@@ -1,0 +1,13 @@
+{% extends 'app_lab/base.html' %}
+
+{% block title %}Detalhes da Auditoria{% endblock %}
+
+{% block content %}
+<h1>Detalhes da Auditoria</h1>
+<p><strong>Usuário:</strong> {{ object.usuario }}</p>
+<p><strong>Ação:</strong> {{ object.acao }}</p>
+<p><strong>Objeto Afetado:</strong> {{ object.objeto_afetado }}</p>
+<p><strong>Data da Ação:</strong> {{ object.data_acao }}</p>
+<a href="{% url 'auditoria_update' object.pk %}" class="button">Editar</a>
+<a href="{% url 'auditoria_list' %}" class="button">Voltar</a>
+{% endblock %}

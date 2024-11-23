@@ -1,0 +1,12 @@
+{% extends 'app_lab/base.html' %}
+
+{% block title %}Detalhes do Banco de Sangue{% endblock %}
+
+{% block content %}
+<h1>Detalhes do Banco de Sangue</h1>
+<p><strong>Tipo Sanguíneo:</strong> {{ object.tipo_sanguineo.tipo }}</p>
+<p><strong>Quantidade em Unidades:</strong> {{ object.quantidade_em_unidades }}</p>
+<p><strong>Última Atualização:</strong> {{ object.atualizado_em }}</p>
+<a href="{% url 'banco_de_sangue_update' object.pk %}" class="button">Editar</a>
+<a href="{% url 'banco_de_sangue_list' %}" class="button">Voltar</a>
+{% endblock %}

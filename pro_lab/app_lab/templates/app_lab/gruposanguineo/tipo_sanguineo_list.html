@@ -1,0 +1,30 @@
+{% extends 'app_lab/base.html' %}
+
+{% block title %}Lista de Tipos Sanguíneos{% endblock %}
+
+{% block content %}
+<h1>Lista de Tipos Sanguíneos</h1>
+<a href="{% url 'tipo_sanguineo_create' %}" class="button">Criar Novo Tipo Sanguíneo</a>
+<table>
+    <thead>
+        <tr>
+            <th>Tipo</th>
+            <th>Descrição</th>
+            <th>Ações</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for tipo_sanguineo in object_list %}
+        <tr>
+            <td>{{ tipo_sanguineo.tipo }}</td>
+            <td>{{ tipo_sanguineo.descricao }}</td>
+            <td>
+                <a href="{% url 'tipo_sanguineo_detail' tipo_sanguineo.pk %}" class="button">Ver</a>
+                <a href="{% url 'tipo_sanguineo_update' tipo_sanguineo.pk %}" class="button">Editar</a>
+                <a href="{% url 'tipo_sanguineo_delete' tipo_sanguineo.pk %}" class="button">Excluir</a>
+            </td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% endblock %}

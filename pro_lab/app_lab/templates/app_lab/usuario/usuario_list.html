@@ -1,0 +1,42 @@
+{% extends 'app_lab/base.html' %}
+
+{% block title %}Lista de Usuários{% endblock %}
+
+{% block content %}
+<h1>Lista de Usuários</h1>
+<table>
+    <thead>
+        <tr>
+            <th>Nome</th>
+            <th>Email</th>
+            <th>Tipo</th>
+            <th>Ações</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for usuario in object_list %}
+        <tr>
+            <td>{{ usuario.username }}</td>
+            <td>{{ usuario.email }}</td>
+            <td>
+                {% if usuario.is_medico %}
+                    Médico
+                {% else %}
+                    Comum
+                {% endif %}
+            </td>
+            <td>
+                <a href="{% url 'usuario_detail' usuario.id %}">Ver</a> |
+                <a href="{% url 'usuario_update' usuario.id %}">Editar</a> |
+                <a href="{% url 'usuario_delete' usuario.id %}">Excluir</a>
+            </td>
+        </tr>
+        {% empty %}
+        <tr>
+            <td colspan="4">Nenhum usuário cadastrado.</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+<a href="{% url 'usuario_create' %}" class="button">Adicionar Novo Usuário</a>
+{% endblock %}

@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang = 'pt'>
+<head>
+    <meta charset = 'UTF-8'>
+    <meta name = 'viewport' content = 'width=device-width, initial-scale=1.0'>
+    <title>Adicionar Análises</title>
+</head>
+<body>
+    <h1>Adicionar Análises para: {{ paciente.nome }}</h1>
+
+    <form method = 'post'>
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type = 'submit'>Salvar Análises</button>
+    </form>
+
+    <a href = "{% url 'detalhes_paciente' paciente.id %}">Voltar</a>
+</body>
+</html>
+l>
